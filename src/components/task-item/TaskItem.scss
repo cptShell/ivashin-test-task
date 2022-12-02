@@ -24,6 +24,7 @@
 }
 
 .delete-button {
+  margin-right: 10px;
   @include task-button(url('../../assets/img/delete.svg'));
 }
 

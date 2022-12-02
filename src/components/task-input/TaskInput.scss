@@ -1,0 +1,30 @@
+@use '../../assets/styles/variables.scss' as *;
+@use '../../assets/styles/mixins.scss' as *;
+
+.create-form {
+  display: flex;
+  height: 32px;
+}
+
+.create-input {
+  @include form-input;
+}
+
+.create-button {
+  width: 40px;
+  background-color: #{$dark-grey};
+  background-image: url('../../assets/img/add.svg');
+  background-size: contain;
+  background-position: center;
+  border: 1px solid black;
+  border-radius: 2px;
+  transform: border ease 150ms;
+  &:hover {
+    border: 1px solid #{$light-pink};
+    cursor: pointer;
+  }
+  &::placeholder {
+    color: #777d86;
+    font-size: 16px;
+  }
+}

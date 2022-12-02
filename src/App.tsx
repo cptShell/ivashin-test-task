@@ -4,7 +4,7 @@ import { Task } from './common/models/Task';
 import { TaskStorage } from './common/helpers/TaskStorage';
 import { TaskInput } from './components/task-input/TaskInput';
 import { SearchInput } from './components/search-input/SearchInput';
-import './reset.scss';
+import './assets/styles/reset.scss';
 import './App.scss';
 
 function App() {
@@ -64,11 +64,11 @@ function App() {
   return (
     <div className="App">
       <h1>TODO LIST</h1>
-      <div>
+      <div className="control-panel">
         <TaskInput addTask={addTask} />
         <SearchInput updateTags={updateTags} />
       </div>
-      <ul>
+      <ul className="task-list">
         {filteredTasks.map((task) => (
           <TaskItem
             task={task}

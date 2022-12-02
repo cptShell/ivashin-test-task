@@ -1,0 +1,32 @@
+@use '../../assets/styles/variables.scss' as *;
+@use '../../assets/styles/mixins.scss' as *;
+
+.task-item {
+  display: flex;
+  width: 100%;
+  gap: 5px;
+}
+
+.description-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 5px;
+}
+
+.task-description {
+  word-wrap: break-word;
+  word-break: break-all;
+  & > b {
+    color: #{$light-pink};
+    text-decoration: underline;
+  }
+}
+
+.delete-button {
+  @include task-button(url('../../assets/img/delete.svg'));
+}
+
+.edit-button {
+  @include task-button(url('../../assets/img/edit.svg'));
+}

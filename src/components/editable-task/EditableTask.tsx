@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { useForm } from 'react-hook-form';
 import { Task } from '../../common/models/Task';
+import './EditableTask.scss';
 
 type Props = {
   edit: (newData: string) => void;
@@ -19,9 +20,14 @@ export const EditableTask: FC<Props> = ({ edit, task }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <textarea defaultValue={task.toJSON()} {...register('description')} />
-      <button>apply</button>
+    <form className="edit-form" onSubmit={handleSubmit(onSubmit)}>
+      <input
+        autoComplete="off"
+        className="edit-input"
+        defaultValue={task.toJSON()}
+        {...register('description')}
+      />
+      <button className="apply-button" />
     </form>
   );
 };

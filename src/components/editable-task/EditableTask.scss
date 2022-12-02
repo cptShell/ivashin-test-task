@@ -1,0 +1,16 @@
+@use '../../assets/styles/mixins.scss' as *;
+@use '../../assets/styles/variables.scss' as *;
+
+.edit-form {
+  display: flex;
+  width: 100%;
+  gap: 5px;
+}
+
+.edit-input {
+  @include form-input;
+}
+
+.apply-button {
+  @include task-button(url('../../assets/img/done.svg'));
+}

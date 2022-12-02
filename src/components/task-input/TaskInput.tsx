@@ -1,6 +1,7 @@
 import { FC, useId } from 'react';
 import { useForm } from 'react-hook-form';
 import { Task } from '../../common/models/Task';
+import './TaskInput.scss';
 
 type Props = {
   addTask: (task: Task) => void;
@@ -14,6 +15,8 @@ export const TaskInput: FC<Props> = ({ addTask }) => {
   const { handleSubmit, register, reset } = useForm<AddTaskForm>();
 
   const onSubmit = ({ description }: AddTaskForm) => {
+    if (!description.trim().length) return;
+
     const task = new Task(description);
 
     addTask(task);
@@ -22,9 +25,15 @@ export const TaskInput: FC<Props> = ({ addTask }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <input type="text" placeholder="Type task" {...register('description')} />
-      <button>add task</button>
+    <form className="create-form" onSubmit={handleSubmit(onSubmit)}>
+      <input
+        autoComplete="off"
+        className="create-input"
+        type="text"
+        placeholder="Add a new task..."
+        {...register('description')}
+      />
+      <button className="create-button" />
     </form>
   );
 };

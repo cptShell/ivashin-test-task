@@ -1,0 +1,30 @@
+@use './variables.scss' as *;
+
+@mixin task-button($img) {
+  margin-left: auto;
+  min-width: 30px;
+  height: 30px;
+  background-color: #{$dark-grey};
+  background-image: $img;
+  background-size: contain;
+  background-position: center;
+  border: 1px solid black;
+  border-radius: 2px;
+  transform: border ease 150ms;
+  &:hover {
+    border: 1px solid #{$light-pink};
+    cursor: pointer;
+  }
+  &::placeholder {
+    color: #777d86;
+    font-size: 16px;
+  }
+}
+
+@mixin form-input {
+  width: 100%;
+  color: #{$font-main};
+  background: #{$dark-grey};
+  border: 1px solid black;
+  border-radius: 2px 0 0 2px;
+}

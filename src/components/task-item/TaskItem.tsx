@@ -1,6 +1,7 @@
 import { FC, useState } from 'react';
 import { Task } from '../../common/models/Task';
 import { EditableTask } from '../editable-task/EditableTask';
+import './TaskItem.scss';
 
 type Props = {
   task: Task;
@@ -20,18 +21,19 @@ export const TaskItem: FC<Props> = ({ task, editTask, deleteTask }) => {
   const handleOpenEditMode = () => setEditable(true);
 
   return (
-    <li>
-      <div>
-        {!isEditable ? (
-          <>
-            <span dangerouslySetInnerHTML={{ __html: description }} />
-            <button onClick={handleOpenEditMode}>edit</button>
-          </>
-        ) : (
-          <EditableTask edit={handleEdit} task={task} />
-        )}
-        <button onClick={handleDelete}>delete</button>
-      </div>
+    <li className="task-item">
+      {!isEditable ? (
+        <div className="description-container">
+          <span
+            className="task-description"
+            dangerouslySetInnerHTML={{ __html: description }}
+          />
+          <button className="edit-button" onClick={handleOpenEditMode} />
+        </div>
+      ) : (
+        <EditableTask edit={handleEdit} task={task} />
+      )}
+      <button className="delete-button" onClick={handleDelete} />
     </li>
   );
 };
